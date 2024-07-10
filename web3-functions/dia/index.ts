@@ -16,7 +16,7 @@ Web3Function.onRun(async (context:Web3FunctionContext) => {
   const twelveHoursInMilliseconds = 12 * 60 * 60 * 1e3;
   if (timeDifference > twelveHoursInMilliseconds) {
     isHeartBeat = true;
-    await storage.set("lastRunTime", now.toISOString());
+    await storage.set("lastRunTime", now.getTime().toString());
     console.log("greater than 12");
   }
   const provider = multiChainProvider.default();
